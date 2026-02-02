@@ -2,11 +2,25 @@
 
 /* Footer Stylings */
 
-.footer {
+body {
+    background-color: #303334;
+}
+
+footer {
     position: fixed;
     width: 100%;
     bottom: 0;
     text-align: center;
+
+    background-color: #202324;
+}
+
+h2, h3 {
+    color: white;
+}
+
+p {
+    color: lightgrey;
 }
 
 .profile-picture {
