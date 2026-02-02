@@ -1,0 +1,17 @@
+/* This is where da CSS gonna go OwO */
+
+/* Footer Stylings */
+
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 100%;
+    visibility: true;
+    border-radius: 100px;
+}
