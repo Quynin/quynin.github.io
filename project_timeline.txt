@@ -1,0 +1,17 @@
+Feb 2, 2026:
+- create project timeline
+
+Feb 6, 2026: 
+- software, literary, about me, and career pages
+- each with own style sheets (try not to be too discordant,
+  but different themeing in software, literary, and about me)
+
+Feb 13, 2026:
+- pick, purchase, and connect DNS address
+
+Feb 27, 2026:
+- review/revise CSS
+- upload 2 projects
+
+Mar 6, 2026:
+- upload poetry/fiction

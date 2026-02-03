@@ -15,12 +15,13 @@ footer {
     background-color: #202324;
 }
 
-h2, h3 {
+h1, h2, h3 {
     color: white;
 }
 
 p {
     color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .profile-picture {

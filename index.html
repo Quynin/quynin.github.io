@@ -18,19 +18,42 @@
     <head>
         <meta charset = "utf-8">
         <!-- link local style sheet -->
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="index-styles.css">
 
-        <title>Cassiopeia Slavish</title>  
+        <!-- project timeline text file -->
+        <link rel="project-timeline">
+
+        <!-- title and favicon -->
+        <title>Cassiopeia Slavish</title> 
+
+        <!-- favicon still no work :'( ; they do all over as real images -->
+        <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="images/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
     </head>
 
     <!-- body -->
     <body>
         <div>
-            <h3>He11o!</h3>
+            <h2>He11o!</h2>
             <p>You've stumbled across my website XD</p>
             <p>Please check back on this site regularly as I update it :P</p>
+
         </div>
-        
 
         <!-- menu of buttons -->
         <div>
@@ -39,19 +62,52 @@
             <button>Career</button>
             <button>About Me xD</button>
         </div>
+
+            <!-- project timeline 
+                            !!!!!!!FIND A WAY TO EMBED THIS FROM TXT FILE; JS?
+            -->
+        <div id ="project-timeline" style="color:lightgrey">
+            <h2>Current Project Timeline</h2>
+            Feb 2, 2026:<br>
+- create project timeline<br>
+
+Feb 6, 2026: <br>
+- software, literary, about me, and career pages<br>
+- each with own style sheets (try not to be too discordant,<br>
+  but different themeing in software, literary, and about me)<br>
+
+Feb 13, 2026:<br>
+- pick, purchase, and connect DNS address<br>
+
+Feb 27, 2026:<br>
+- review/revise CSS<br>
+- upload 2 projects<br>
+
+Mar 6, 2026:<br>
+- upload poetry/fiction<br>
+        </div>
+
         
 
         
 
         <!-- give Career its own page -->
          <div class="career">
-            <h2>Career</h2>
-            <img class = "profile-picture" src = "profilepicture_cassiopeia_2025.jpg">
+            <h1>Career</h1>
+            <img class = "profile-picture" src = "images/profilepicture_cassiopeia_2025.jpg">
             <p>Hi!</p>
-            <p>I am a fourth-year engineering student pursuing a major in computer science
+            <p style="display:in-line">I'm</p><p style="color:lightskyblue; display:in-line">Cassiopeia!</p>
+            <p>
+                I am a fourth-year engineering student pursuing a major in computer science
                 and a minor in creative writing at the University of Ottawa.
-                I spend my spare time reading, playing video games, programming editing, and writing.
+                I spend my spare time reading, playing video games, programming, editing, and writing.
             </p>
+            <!-- resume -->
+            <div style="width: 600px">
+                <h2>Resumé</h2>
+                <a href="CassiopeiaSlavish_Resume.pdf"><button action='download(CassiopeiaSlavish_Resume.pdf)'>Download</button></a>
+                <iframe src="CassiopeiaSlavish_Resume.pdf" style="width: 100%;height: 900px;border: none;"></iframe>
+            </div>
          </div>
 
 
@@ -62,12 +118,9 @@
 
     <!-- footer -->
     <footer>
-        <!-- copyright -->
-        <p>Cassiopeia Slavish &#169; 2026</p>
-
         <!-- lynx xD <3 -->
         <div class="link-section">
-            <p>
+            <p style="color: white">
                 <a href="https://quynin.github.io/">Website (yes, this one right here :3 )</a> |
                 <a href="https://github.com/Quynin?tab=repositories">GitHub</a> |
                 <a href="https://www.linkedin.com/in/cassiopeia-slavish-b2aba93a8/">LinkedIn</a> |
@@ -75,6 +128,9 @@
                 <a href="mailto:cassiopeia.slavish@proton.me">cassiopeia.slavish@proton.me</a>
             </p>
         </div>
+
+        <!-- copyright -->
+        <p>Cassiopeia Slavish &#169; 2026</p>
 
         <!-- secrit! -->
         <div>
