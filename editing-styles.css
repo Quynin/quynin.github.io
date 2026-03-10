@@ -1,0 +1,30 @@
+/* Styles for editing projects page */
+
+body {
+    
+    background-image: url("/images/editing-bgd.jpg");
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+p {
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 100%;
+    visibility: true;
+    border-radius: 100px;
+}
+
+/* Overwriting active tab for editing page */
+.topnav a.active {
+  /*background-color: #afa300;*/
+  background-image: url("/images/editing-bgd.jpg");
+  color: black;
+}

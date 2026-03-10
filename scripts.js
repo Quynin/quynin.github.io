@@ -17,3 +17,17 @@ function loadDoc(url, dest) {
     xhttp.open("GET", url, tru);
     xhttp.send();
 }
+
+
+function readTimeline() {
+    //https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryEntry/getFile
+    timeline = FileSystemDirectoryEntry.getFile("project_timeline.txt").file();
+
+    console.log(timeline);
+
+
+
+}
+
+console.log("scripts file has been read and loaded")
+readTimeline();

@@ -1,0 +1,28 @@
+/* Styles for about me page */
+
+body {
+    background-color: #100b38;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+p {
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 100%;
+    visibility: true;
+    border-radius: 100px;
+}
+
+/* Overwriting active tab for about me page */
+.topnav a.active {
+  background-color: #1200af;
+  color: white;
+}

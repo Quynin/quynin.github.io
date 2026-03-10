@@ -1,18 +1,8 @@
-/* This is where da CSS gonna go OwO */
-
-/* Footer Stylings */
+/* Styles for index landing page */
 
 body {
-    background-color: #303334;
-}
-
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-
-    background-color: #202324;
+    background-color: #100b38;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, h2, h3 {
@@ -24,9 +14,29 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.profile-picture {
-    width: 200px;
+.landing-picture {
+    width: 400px;
     height: 100%;
     visibility: true;
-    border-radius: 100px;
+    border-radius: 200px;
+    offset-position: left 25%;
+}
+
+/* Overwriting active tab for index page */
+.topnav a.active {
+  background-color: #1200af;
+  color: white;
+}
+
+/* Columns for split page */
+.flex-container {
+  display: flex;
+  /* Adds a gap between the columns */
+  gap: 20px;
+}
+.column {
+  /* Each column takes up 50% of the width, minus half the gap on each side */
+  width: calc(50% - 10px);
+  padding: 1rem;
+  /* Add other styling as needed */
 }

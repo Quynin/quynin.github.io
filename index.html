@@ -17,7 +17,8 @@
     <!-- header -->
     <head>
         <meta charset = "utf-8">
-        <!-- link local style sheet -->
+        <!-- link style sheets -->
+        <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="index-styles.css">
 
         <!-- project timeline text file -->
@@ -48,24 +49,30 @@
 
     <!-- body -->
     <body>
-        <div>
-            <h2>He11o!</h2>
-            <p>You've stumbled across my website XD</p>
-            <p>Please check back on this site regularly as I update it :P</p>
-
+        <!--Navigation bar-->
+        <div class="topnav">
+            <a class="active" href="">Landing</a>
+            <a href="/software.html">Software</a>
+            <a href="/editing.html">Editing</a>
+            <a href="/about-me.html">About Me</a>
         </div>
 
-        <!-- menu of buttons -->
-        <div>
-            <button>Projects</button>
-            <button>Editing</button>
-            <button>Career</button>
-            <button>About Me xD</button>
+        <div class="flex-container">
+            <div class="column">
+                <h2>Hello!</h2>
+                <p style="display:in-line">I'm</p><p style="color:lightskyblue; display:in-line">Cassiopeia!</p>
+                <p>You've stumbled across my website</p>
+                <p>This is where I experiment, iterate, and have fun with my web development ideas freeform!</p>
+                <p>Please check back on this site regularly as I update it</p>
+            </div>
+            <div class="column">
+                <img class = "landing-picture" src = "images/landingpicture_cassiopeia_2026.jpg">
+            </div>
         </div>
 
-            <!-- project timeline 
-                            !!!!!!!FIND A WAY TO EMBED THIS FROM TXT FILE; JS?
-            -->
+
+        <link src="project_timeline.txt">
+
         <div id ="project-timeline" style="color:lightgrey">
             <h2>Current Project Timeline</h2>
             Feb 2, 2026:<br>
@@ -78,44 +85,18 @@ Mar 6, 2026: <br>
 - software, literary, about me, and career pages<br>
 - each with own style sheets (try not to be too discordant,<br>
   but different themeing in software, literary, and about me)<br>
+  - color theory the page backgrounds, with subcolor palettes for each pages<br>
+    - coolor.io?<br>
 
 Mar 27, 2026:<br>
-- review/revise CSS<br>
+- review/revise CSS (because I like the different colors, but this is ugly rn)<br>
 - upload 2 projects<br>
 
 Apr 6, 2026:<br>
 - upload poetry/fiction<br>
         </div>
 
-        
-
-        
-
-        <!-- give Career its own page -->
-         <div class="career">
-            <h1>Career</h1>
-            <img class = "profile-picture" src = "images/profilepicture_cassiopeia_2025.jpg">
-            <p>Hi!</p>
-            <p style="display:in-line">I'm</p><p style="color:lightskyblue; display:in-line">Cassiopeia!</p>
-            <p>
-                I am a fourth-year engineering student pursuing a major in computer science
-                and a minor in creative writing at the University of Ottawa.
-                I spend my spare time reading, playing video games, programming, editing, and writing.
-            </p>
-            <!-- resume -->
-            <div style="width: 600px">
-                <h2>Resumé</h2>
-                <a href="CassiopeiaSlavish_Resume.pdf"><button action='download(CassiopeiaSlavish_Resume.pdf)'>Download</button></a>
-                <iframe src="CassiopeiaSlavish_Resume.pdf" style="width: 100%;height: 900px;border: none;"></iframe>
-            </div>
-         </div>
-
-
-
     </body>
-
-    
-
     <!-- footer -->
     <footer>
         <!-- lynx xD <3 -->
@@ -132,11 +113,10 @@ Apr 6, 2026:<br>
         <!-- copyright -->
         <p>Cassiopeia Slavish &#169; 2026</p>
 
-        <!-- secrit! -->
-        <!--
-            <div>
-                <p style="color: #303334">Kisses for you, curious internet stranger MMMMMMWUAH</p>
-            </div>
-        -->
+        <!-- secrit!
+        <div>
+            <p style="color: #303334">Kisses for you, curious internet stranger MMMMMMWUAH</p>
+        </div>-->
     </footer>
+    <script src="scripts.js"></script>
 </html>

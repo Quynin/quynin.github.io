@@ -1,17 +1,20 @@
+Current Project Timeline
 Feb 2, 2026:
 - create project timeline
-
-Feb 6, 2026: 
-- software, literary, about me, and career pages
-- each with own style sheets (try not to be too discordant,
-  but different themeing in software, literary, and about me)
 
 Feb 13, 2026:
 - pick, purchase, and connect DNS address
 
-Feb 27, 2026:
-- review/revise CSS
+Mar 6, 2026: 
+- software, literary, about me, and career pages
+- each with own style sheets (try not to be too discordant,
+  but different themeing in software, literary, and about me)
+  - color theory the page backgrounds, with subcolor palettes for each pages
+    - coolor.io?
+
+Mar 27, 2026:
+- review/revise CSS (because I like the different colors, but this is ugly rn)
 - upload 2 projects
 
-Mar 6, 2026:
+Apr 6, 2026:
 - upload poetry/fiction
