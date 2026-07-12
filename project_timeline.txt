@@ -7,8 +7,7 @@ Feb 13, 2026:
 
 Mar 6, 2026: 
 - software, literary, about me, and career pages
-- each with own style sheets (try not to be too discordant,
-  but different themeing in software, literary, and about me)
+- each with own style sheets (try not to be too discordant, but different themeing in software, literary, and about me)
   - color theory the page backgrounds, with subcolor palettes for each pages
     - coolor.io?
 

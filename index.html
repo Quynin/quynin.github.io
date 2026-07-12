@@ -64,32 +64,11 @@
                     <h2>Hello!</h2>
                     <p style="display:in-line">I'm</p><p style="color:lightskyblue; display:in-line">Cassiopeia!</p>
                     <p>You've stumbled across my website</p>
-                    <p>This is where I experiment, iterate, and have fun with my web development ideas freeform!</p>
+                    <p>This is where I experiment, iterate, and have fun with my web development ideas freeform! Notably: this is all hand-coded!</p>
                     <p>Please check back on this site regularly as I update it</p>
                 </div>
 
-                <div id ="project-timeline" style="color:lightgrey">
-            <h2>Current Project Timeline</h2>
-            Feb 2, 2026:<br>
-- create project timeline<br>
-
-Feb 13, 2026:<br>
-- pick, purchase, and connect DNS address<br>
-
-Mar 6, 2026: <br>
-- software, literary, about me, and career pages<br>
-- each with own style sheets (try not to be too discordant,<br>
-  but different themeing in software, literary, and about me)<br>
-  - color theory the page backgrounds, with subcolor palettes for each pages<br>
-    - coolor.io?<br>
-
-Mar 27, 2026:<br>
-- review/revise CSS (because I like the different colors, but this is ugly rn)<br>
-- upload 2 projects<br>
-
-Apr 6, 2026:<br>
-- upload poetry/fiction<br>
-                </div>
+                <div id ="project-timeline" style="color:lightgrey"><!-- populate dynamically with script --></div>
 
             </div>
             
@@ -126,4 +105,19 @@ Apr 6, 2026:<br>
         </div>-->
     </footer>
     <script src="scripts.js"></script>
+    <script type="text/javascript">
+        //PLEASE LET ME GET RID OF THIS
+        const rawString = 
+"<h2>Current Project Timeline</h2>            Feb 2, 2026:<br>- create project timeline<br>Feb 13, 2026:<br>- pick, purchase, and connect DNS address<br>Mar 6, 2026: <br>- software, literary, about me, and career pages<br>- each with own style sheets (try not to be too discordant,<br>  but different themeing in software, literary, and about me)<br>  - color theory the page backgrounds, with subcolor palettes for each pages<br>    - coolor.io?<br>Mar 27, 2026:<br>- review/revise CSS (because I like the different colors, but this is ugly rn)<br>- upload 2 projects<br>Apr 6, 2026:<br>- upload poetry/fiction<br>";
+        
+        const fp = '/project_timeline.txt';
+        const builtString = buildHTMLFromFile(fp);
+        console.log(builtString);
+        builtString.then((response) => {
+                const target = document.getElementById('project-timeline');
+                target.insertAdjacentHTML('afterbegin', response);
+            }
+        );
+        
+    </script>
 </html>
