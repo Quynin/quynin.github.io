@@ -97,7 +97,14 @@
         </div>
 
         <!-- copyright -->
-        <p>Cassiopeia Slavish &#169; 2026</p>
+        <div>
+            <p id="copyright-p">Cassiopeia Slavish &#169; </p>
+            <script type="text/javascript">
+                const target = document.getElementById('copyright-p');
+                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
+            </script>
+        </div>
+
 
         <!-- secrit!
         <div>
