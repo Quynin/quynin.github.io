@@ -1,49 +1,3 @@
-/*function download(url) {
-    console.log("awawawa")
-    const a = document.createElement('a')
-    a.href = url;
-    a.download = url.split('/').pop()
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    console.log("bewh")
-}
-
-function loadDoc(url, dest) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        document.getElementById(dest).innerHTML = this.responseText;
-    }
-    xhttp.open("GET", url, tru);
-    xhttp.send();
-} */
-
-/*import {readFile} from 'node:fs/promises';
-
-const fs = require('node:fs');
-
-fs.readFile('project_timeline.txt', 'utf8', (err, data) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    console.log(data);
-});*/
-
-/*
-function readTimeline() {
-    //https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryEntry/getFile
-    const reader = new FileReader();
-
-    reader.readAsText("project_timeline.txt");
-    //reader.addEventListener("load",)
-    console.log(reader.result);
-    
-    timeline = FileSystemDirectoryEntry.getFile("project_timeline.txt").file();
-
-    console.log(timeline);
-} */
-
 //Read and return text from file
 /* 
  * @param fp : path of file to read
@@ -73,6 +27,7 @@ async function readPublicTextFile(fp) {
 }
 
 //Build HTML unordered list from text
+//This currently does not recognise sub-layers of a list
 /*
  * @param str  : text to split and put into unordered list
  * @param delim: delimiter to search for in text when splitting
@@ -90,14 +45,15 @@ async function buildUnorderedListFromText(str, delim) {
     var HTMLStr = "";
     //Concat the strings with list element tags
     //TODO: nest the <ul></ul> cases within the content cases?
+    //replace REGEX from example https://stackoverflow.com/questions/26156292/trim-specific-character-from-a-string
     splitText.forEach(e => {
         eTrim = e.trim()
         if (eTrim.charAt(0) == '-' && !liFag) {
             liFag = true;
-            HTMLStr = HTMLStr.concat("<ul><li>", eTrim, "<li>");
+            HTMLStr = HTMLStr.concat("<ul><li>", eTrim.replace(/^\-+|\ +/, ""), "<li>");
         }
         else if (eTrim.charAt(0) == '-' && liFag) {
-            HTMLStr = HTMLStr.concat("<li>", eTrim, "</li>"); 
+            HTMLStr = HTMLStr.concat("<li>", eTrim.replace(/^\-+|\ +/, ""), "</li>"); 
         } else if (liFag) {
             liFag = false;
             HTMLStr = HTMLStr.concat("</ul><p>", eTrim, "</p>")
@@ -113,6 +69,11 @@ async function buildUnorderedListFromText(str, delim) {
 }
 
 //Build HTML from text file at file path fp
+/*
+ * @param fp : path of file to read and whose contents to convert to HTML
+ *
+ * @return   : HTML string
+ */
 async function buildHTMLFromFile(fp) {
 
     //Read raw text from file

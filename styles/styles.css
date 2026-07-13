@@ -41,3 +41,24 @@ footer {
 
     background-color: #202324;
 }
+
+
+/* Columns for split page */
+.flex-container {
+  display: flex;
+  /* Adds a gap between the columns */
+  gap: 20px;
+}
+.column {
+  /* Each column takes up 50% of the width, minus half the gap on each side */
+  width: calc(50% - 10px);
+  padding: 1rem;
+  /* Add other styling as needed */
+}
+
+/* Class for cassiopeia styling */ 
+.cassiopeia {
+  color:    lightskyblue;
+  display:    in-line;
+  font-size:  40px;  
+}
