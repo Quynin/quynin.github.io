@@ -41,24 +41,24 @@ async function buildUnorderedListFromText(str, delim) {
     console.log(splitText);
 
     //Init the HTML string starting tag
-    var liFag = false;
+    var liFlag = false;
     var HTMLStr = "";
     //Concat the strings with list element tags
     //TODO: nest the <ul></ul> cases within the content cases?
     //replace REGEX from example https://stackoverflow.com/questions/26156292/trim-specific-character-from-a-string
     splitText.forEach(e => {
         eTrim = e.trim()
-        if (eTrim.charAt(0) == '-' && !liFag) {
-            liFag = true;
+        if (eTrim.charAt(0) == '-' && !liFlag) {
+            liFlag = true;
             HTMLStr = HTMLStr.concat("<ul><li>", eTrim.replace(/^\-+|\ +/, ""), "<li>");
         }
-        else if (eTrim.charAt(0) == '-' && liFag) {
+        else if (eTrim.charAt(0) == '-' && liFlag) {
             HTMLStr = HTMLStr.concat("<li>", eTrim.replace(/^\-+|\ +/, ""), "</li>"); 
-        } else if (liFag) {
-            liFag = false;
+        } else if (liFlag) {
+            liFlag = false;
             HTMLStr = HTMLStr.concat("</ul><p>", eTrim, "</p>")
         } else {
-            liFag = false;
+            liFlag = false;
             HTMLStr = HTMLStr.concat("<p>", eTrim, "</p>");
         }
     });

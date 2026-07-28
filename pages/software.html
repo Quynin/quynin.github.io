@@ -42,18 +42,28 @@
                 </div>
             </div>
         </div>
+
+        <div id="copyright-div" style="position: relative; bottom: 0px; width:100%;">
+            <p id="copyright-p" style="position: relative; bottom: 0px; width:100%; text-align: center">
+                Cassiopeia Slavish &#169; 
+            </p>
+            <script type="text/javascript">
+                const target = document.getElementById('copyright-p');
+                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
+            </script>
+        </div>
         
     </body>
     <!-- footer -->
     <footer>
 
         <!-- copyright -->
-        <div>
+        <!--<div>
             <p id="copyright-p">Cassiopeia Slavish &#169; </p>
             <script type="text/javascript">
                 const target = document.getElementById('copyright-p');
                 target.insertAdjacentHTML('beforeend', new Date().getFullYear());
             </script>
-        </div>
+        </div>-->
     </footer>
 </html>

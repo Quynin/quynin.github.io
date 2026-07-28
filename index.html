@@ -77,19 +77,29 @@
                 <img class = "landing-picture" src = "images/landingpicture_cassiopeia_2026.jpg">
             </div>
         </div>
+
+        <div id="copyright-div" style="position: relative; bottom: 0px; width:100%">
+            <p id="copyright-p" style="position: relative; bottom: 0px; width:100%; text-align: center">
+                Cassiopeia Slavish &#169; 
+            </p>
+            <script type="text/javascript">
+                const target = document.getElementById('copyright-p');
+                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
+            </script>
+        </div>
         
 
     </body>
     <!-- footer -->
     <footer>
         <!-- copyright -->
-        <div>
-            <p id="copyright-p">Cassiopeia Slavish &#169; </p>
+        <!--<div>
+            <p id="copyright-p"></p>
             <script type="text/javascript">
                 const target = document.getElementById('copyright-p');
                 target.insertAdjacentHTML('beforeend', new Date().getFullYear());
             </script>
-        </div>
+        </div>-->
 
 
         <!-- secrit!
@@ -99,13 +109,10 @@
     </footer>
     <script src="scripts.js"></script>
     <script type="text/javascript">
-        //PLEASE LET ME GET RID OF THIS
-        const rawString = 
-"<h2>Current Project Timeline</h2>            Feb 2, 2026:<br>- create project timeline<br>Feb 13, 2026:<br>- pick, purchase, and connect DNS address<br>Mar 6, 2026: <br>- software, literary, about me, and career pages<br>- each with own style sheets (try not to be too discordant,<br>  but different themeing in software, literary, and about me)<br>  - color theory the page backgrounds, with subcolor palettes for each pages<br>    - coolor.io?<br>Mar 27, 2026:<br>- review/revise CSS (because I like the different colors, but this is ugly rn)<br>- upload 2 projects<br>Apr 6, 2026:<br>- upload poetry/fiction<br>";
         
         const fp = '/project_timeline.txt';
         const builtString = buildHTMLFromFile(fp);
-        console.log(builtString);
+        //console.log(builtString);
         builtString.then((response) => {
                 const target = document.getElementById('project-timeline');
                 target.insertAdjacentHTML('afterbegin', response);
