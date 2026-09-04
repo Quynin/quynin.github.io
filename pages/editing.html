@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset = "utf-8">
+    <!-- header populated by JS for common header elements -->
+    <head id="header">
+        <!-- link style sheets -->
+        <link rel="stylesheet" href="../styles/editing-styles.css">
         <!-- link style sheets -->
         <link rel="stylesheet" href="../styles/styles.css">
-        <link rel="stylesheet" href="../styles/editing-styles.css">
-
-        <title>Cassiopeia Slavish</title>
     </head>
 
     <body>
@@ -41,27 +40,25 @@
             </div>
         </div>
 
-        <div id="copyright-div" style="position: relative; bottom: 0px; width:100%">
-            <p id="copyright-p" style="position: relative; bottom: 0px; width:100%; text-align: center">
-                Cassiopeia Slavish &#169; 
-            </p>
-            <script type="text/javascript">
-                const target = document.getElementById('copyright-p');
-                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
-            </script>
+        <div id="copyright-div">
         </div>
         
     </body>
     <!-- footer -->
     <footer>
-
-        <!-- copyright -->
-        <!--<div>
-            <p id="copyright-p">Cassiopeia Slavish &#169; </p>
-            <script type="text/javascript">
-                const target = document.getElementById('copyright-p');
-                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
-            </script>
-        </div>-->
     </footer>
+
+    <!-- Import scripts -->
+    <script src="../scripts.js"></script>
+    <script type="text/javascript">
+        
+        //Inject the common header elements
+        const headerHTML = getCommonHeaderElements("../pages/header.html");
+        //console.log("header HTML: " + headerHTML);
+        headerHTML.then((response) => {
+                const target = document.getElementById('header');
+                target.insertAdjacentHTML('afterbegin', response);
+            }
+        );
+    </script>
 </html>

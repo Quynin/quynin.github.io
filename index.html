@@ -14,38 +14,13 @@
 
 <!DOCTYPE HTML>
 <html>
-    <!-- header -->
-    <head>
-        <meta charset = "utf-8">
+    <!-- header populated by JS for common header elements -->
+    <head id="header">
+        <link rel="stylesheet" href="/styles/index-styles.css">
         <!-- link style sheets -->
         <link rel="stylesheet" href="/styles/styles.css">
-        <link rel="stylesheet" href="/styles/index-styles.css">
-
-        <!-- project timeline text file -->
-        <link rel="project-timeline">
-
-        <!-- title and favicon -->
-        <title>Cassiopeia Slavish</title> 
-
-        <!-- favicon still no work :'( ; they do all over as real images -->
-        <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-        <link rel="manifest" href="images/favicon/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
     </head>
+
 
     <!-- body -->
     <body>
@@ -78,46 +53,35 @@
             </div>
         </div>
 
-        <div id="copyright-div" style="position: relative; bottom: 0px; width:100%">
-            <p id="copyright-p" style="position: relative; bottom: 0px; width:100%; text-align: center">
-                Cassiopeia Slavish &#169; 
-            </p>
-            <script type="text/javascript">
-                const target = document.getElementById('copyright-p');
-                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
-            </script>
-        </div>
+        <!-- populated by copyright() function  -->
+        <div id="copyright-div"></div>
         
 
     </body>
     <!-- footer -->
-    <footer>
-        <!-- copyright -->
-        <!--<div>
-            <p id="copyright-p"></p>
-            <script type="text/javascript">
-                const target = document.getElementById('copyright-p');
-                target.insertAdjacentHTML('beforeend', new Date().getFullYear());
-            </script>
-        </div>-->
+    <footer></footer>
 
-
-        <!-- secrit!
-        <div>
-            <p style="color: #303334">Kisses for you, curious internet stranger MMMMMMWUAH</p>
-        </div>-->
-    </footer>
+    <!-- Import scripts -->
     <script src="scripts.js"></script>
     <script type="text/javascript">
         
+        //Inject the timeline file
         const fp = '/project_timeline.txt';
         const builtString = buildHTMLFromFile(fp);
-        //console.log(builtString);
+        //console.log("builtString: " + builtString);
         builtString.then((response) => {
                 const target = document.getElementById('project-timeline');
                 target.insertAdjacentHTML('afterbegin', response);
             }
         );
         
+        //Inject the common header elements
+        const headerHTML = getCommonHeaderElements();
+        //console.log("header HTML: " + headerHTML);
+        headerHTML.then((response) => {
+                const target = document.getElementById('header');
+                target.insertAdjacentHTML('afterbegin', response);
+            }
+        );
     </script>
 </html>

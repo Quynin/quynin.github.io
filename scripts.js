@@ -88,4 +88,48 @@ async function buildHTMLFromFile(fp) {
 //const fp = '/project_timeline.txt'
 //buildHTMLFromFile(fp);
 
+//Reads and returns the contents of the common header html file
+/*
+ * @param headerFP : path of common header elements file to read
+ * 
+ * @return         : HTML string
+ */
+async function getCommonHeaderElements(headerFP = "pages/header.html") {
+    
+    //Read raw file contents from header file
+    const header = await readPublicTextFile(headerFP);
+    console.log("BBBB: " + header);
+
+    return header;
+}
+
+
+//Statiscally fills copyright div of the HTML page with copyright at correct location relative to bottom of page 
+//Run this in a callback to make dynamic
+function copyright() {
+    const copyrightString = "<p> Cassiopeia Slavish © " + new Date().getFullYear() + "</p>";
+    const copyrightDiv = document.getElementById('copyright-div');
+
+    copyrightDiv.innerHTML = copyrightString;
+
+    const hasVerticalOverflow = document.documentElement.scrollHeight > window.innerHeight;
+    // - 
+    if (hasVerticalOverflow) {
+        copyrightDiv.style.cssText = "position: relative; bottom: 0px; width:100%; text-align: center"
+    } else {
+        copyrightDiv.style.cssText = "position: absolute; bottom: 0px; width:100%; text-align: center"
+    }
+
+}
+
+//Init copyright bar--since every page loads this scripts file, every page runs init and sets up separate callback functions
+//First call of positioning function to correctly position it on page
+copyright();
+
+//Callback function to keep copyright at bottom of page
+window.addEventListener('resize', () => {
+    console.log("Copyright recentered to bottom.")
+    copyright();
+});
+
 console.log("scripts file has been read and loaded")
