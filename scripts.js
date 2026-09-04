@@ -104,15 +104,20 @@ async function getCommonHeaderElements(headerFP = "pages/header.html") {
 }
 
 
-//Statiscally fills copyright div of the HTML page with copyright at correct location relative to bottom of page 
+//Statically fills copyright div of the HTML page with copyright at correct location relative to bottom of page 
 //Run this in a callback to make dynamic
-function copyright() {
+
+//TODO: Fix this not initialising properly on landing page (b/c of image?)
+//Populates the copyright bar--this only needs to be run once per page
+function populateCopyrightDiv() {
     const copyrightString = "<p> Cassiopeia Slavish © " + new Date().getFullYear() + "</p>";
     const copyrightDiv = document.getElementById('copyright-div');
-
     copyrightDiv.innerHTML = copyrightString;
-
+}
+//Adds CSS to copyright bar for positioning--this needs to be run on each zoom
+function positionCopyrightDiv() {
     const hasVerticalOverflow = document.documentElement.scrollHeight > window.innerHeight;
+    const copyrightDiv = document.getElementById('copyright-div');
     // - 
     if (hasVerticalOverflow) {
         copyrightDiv.style.cssText = "position: relative; bottom: 0px; width:100%; text-align: center"
@@ -124,12 +129,13 @@ function copyright() {
 
 //Init copyright bar--since every page loads this scripts file, every page runs init and sets up separate callback functions
 //First call of positioning function to correctly position it on page
-copyright();
+populateCopyrightDiv();
+positionCopyrightDiv();
 
 //Callback function to keep copyright at bottom of page
 window.addEventListener('resize', () => {
     console.log("Copyright recentered to bottom.")
-    copyright();
+    positionCopyrightDiv();
 });
 
 console.log("scripts file has been read and loaded")
