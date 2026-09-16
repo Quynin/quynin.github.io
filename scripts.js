@@ -90,7 +90,7 @@ async function buildHTMLFromFile(fp) {
 
 //Reads and returns the contents of the common header html file
 /*
- * @param headerFP : path of common header elements file to read
+ * @param headerFP : path of common header elements file to read, default is path from index
  * 
  * @return         : HTML string
  */
