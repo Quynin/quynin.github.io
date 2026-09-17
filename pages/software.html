@@ -61,6 +61,60 @@
 
                 </div>-->
 
+                <div>
+                    <script src="../towers-of-hanoi.js"></script>
+                    <h2>Towers of Hanoi</h2>
+                    <p>The Towers of Hanoi is a classic CS problem. I've simulated it in JS here!</p>
+
+                    <!--Visuals rendered here! Use an SVG? TODO: transition to a better drawing program; show both size-by-side-->
+                    <div id="towers-of-hanoi-div">
+                        <svg width="800" height="600">
+
+                            <!-- towers -->
+                            <rect class="hanoi-tower" id="tower-1" x="175" y="200" width="50" height="400" fill="grey" onclick="selectTower(0)"/>
+                            <rect class="hanoi-tower" id="tower-2" x="375" y="200" width="50" height="400" fill="grey" onclick="selectTower(1)"/>
+                            <rect class="hanoi-tower" id="tower-3" x="575" y="200" width="50" height="400" fill="grey" onclick="selectTower(2)"/>
+                            
+                            <!-- rings -->
+                            <rect class="hanoi-ring" id="ring-1" x="140" y="160" width="120" height="80" fill = "red"/>
+                            <rect class="hanoi-ring" id="ring-2" x="130" y="245" width="140" height="80" fill = "red"/>
+                            <rect class="hanoi-ring" id="ring-3" x="120" y="330" width="160" height="80" fill = "red"/>
+                            <rect class="hanoi-ring" id="ring-4" x="110" y="415" width="180" height="80" fill = "red"/>
+                            <rect class="hanoi-ring" id="ring-5" x="100" y="500" width="200" height="80" fill = "red"/>
+
+                            <!-- onclick hitboxes -->
+                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="100" y="0" width="200" height="600" opacity="0" onclick="selectTower(0)"/>
+                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="300" y="0" width="200" height="600" opacity="0" onclick="selectTower(1)"/>
+                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="500" y="0" width="200" height="600" opacity="0" onclick="selectTower(2)"/>
+
+ 
+                        </svg>
+                    </div>
+
+                    <script type="text/javascript">
+                        var towerssss = document.getElementsByClassName("hanoi-tower-hitbox");
+                        for (var i = 0; i < towerssss.length; i++) {  
+                            towerssss[i].addEventListener('onclick', (e) => {
+                                selectTower();
+                            });
+                        }
+
+                        // rings.forEach() did not work here?
+                        //TODO: GET THIS WORKING? function in towers-of-hanoi.js
+                        /*
+                        var rings = document.getElementsByClassName("hanoi-ring");
+                        for (var i = 0; i < rings.length; i++) {
+                            console.log(rings)
+                            rings[i].addEventListener('onclick', (e) => {
+                                console.log('AFTER SELECT BY RING ID')
+                                selectTowerByRingId(ring.getAttribute("id"));
+                                console.log('AFTER SELECT BY RING ID')
+                            }
+                            );
+                        }
+                            */
+                    </script>
+                </div>
             </div>
         </div>
 

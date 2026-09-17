@@ -138,4 +138,4 @@ window.addEventListener('resize', () => {
     positionCopyrightDiv();
 });
 
-console.log("scripts file has been read and loaded")
+console.log("scripts.js has been read and loaded")

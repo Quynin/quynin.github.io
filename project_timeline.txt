@@ -17,3 +17,11 @@ Mar 27, 2026:
 
 Apr 6, 2026:
 - upload poetry/fiction
+
+Sept 20, 2026:
+- Make Towers of Hanoir JS game/sim
+  - This is an intro to interactive JS state machine
+
+Oct 20, 2026:
+- Have working JS/CSS on all pages
+  - Begin migration to React
