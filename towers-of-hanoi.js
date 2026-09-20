@@ -14,58 +14,86 @@ const max_value = 100;
 
 //3 towers, all rings start on first tower
 var towers = [[5, 4, 3, 2, 1], [], []] 
+var numRings = 5;
 
-var selectedTower = -1;
+var originTower = -1;
 var destinationTower = -1;
 
-function selectTower(i) {
 
-    console.log("ssssss");
+//Function to handle cases for clicking a tower
+function clickTower(i) {
 
+    //Check: if select empty tower, terminate
     /*if (getTower(i).length == 0) {
-        deselectTower(i);
-        console.log(`Tower ${i} cannot be selected`);
+        console.log(`Tower ${i} is empty!`)
         return;
     }*/
 
-    if (selectedTower == -1) {
-        console.log(`Tower ${i} has been selected`);
-        selectedTower = i;
-    } else {
-        moveRing(selectedTower, i);
-        deselectTower(i);
-        console.log(`Tower ${i} has been deselected`);
+    //Initial case: nothing selected, then select origin tower
+    if (originTower == -1 && getTower(i).length > 0) {
+        setOriginTower(i);
+    }
+
+    //Else if origin tower selected, then select destination tower and attempt move
+    else if (originTower != -1) {
+        setDestinationTower(i);
+        //Attempt move ring
+        moveRing();
     }
 }
 
-//Get the tower that contains the parameterised ring id
-//TODO: GET THIS WORKING? addEventListener on software.html
-/*
-function selectTowerByRingId(ringId) {
-    console.log("AAAAAAAAA");
-    //Use JS easy conversion to convert number character into int
-    //ringId syntax is "ring-n"
-    const n = ringId.charAt(4);
-    for(var i = 0; i < towers.length; i++) {
-        if (towers[i].contains(n)) {
-            selectTower(i);
-            return;
-        }
-    }
-    
-}*/
+function setOriginTower(i) {
+    console.log(`Tower ${i} has been selected as origin`);
+    originTower = i;
+    highlightOriginTowerTopRing(i);
+}
 
-function deselectTower(i) {
-    selectedTower = -1;
+function setDestinationTower(i) {
+    console.log(`Tower ${i} has been selected as destination`);
+    destinationTower = i;
+}
 
+//Update CSS to highlight topmost ring of origin tower
+function highlightOriginTowerTopRing(i) {
+    //Get ringId of ring to highlight
+    const ringId =  "ring-" + getTopRing(getTower(i));
+
+    console.log("AAA: " + ringId);
+    //Get the ring by ringId
+    const ring = document.getElementById(ringId);
+    //Highlight the selected ring
+    ring.setAttribute("fill", "#FF4040");
+    ring.setAttribute("stroke-width", "4px");
 
 }
 
+
+//Update CSS to unhighlight highlighted ring
+function unhighlightRing(ringValue) {
+    //Get ringId of ring to highlight
+    //console.log(i + " " + getTower(t));
+    const ringId =  "ring-" + getTopRing(ringValue);
+    //Get the ring by ringId
+    const ring = document.getElementById(ringId);
+    //Unhighlight the selected ring
+    ring.setAttribute("fill", "#FF0000");
+    ring.setAttribute("stroke-width", "1px");
+}
+
+//Reset origin and destination towers to effective-null
+function deselectTowers() {
+    originTower = -1;
+    destinationTower = -1;
+}
+
+
+//Get the tower (sub-array of towers) based on integer i
 function getTower(i) {
     return towers[i];
 }
 
-//If it exists return the top ring (integer value) of the tower; this corresponds to the last element of the array
+//If it exists, return the top ring (integer value) of the tower; this corresponds to the last element of the array
+//If tower is empty, return max_value
 function getTopRing(tower) {
 
     //In case of empty tower, return max_value for easy comparison
@@ -78,59 +106,89 @@ function getTopRing(tower) {
 }
 
 //Boolean
-function isValidMove(selectedTower, destinationTower) {
+//Evaluate whether move from origin to destination tower is acceptable based on the current ring arrangment
+function isValidMove(originTower, destinationTower) {
 
     //If top-ring on selected tower is lesser than top-ring on destination tower
     //This also includes empty selected tower case
-    return getTopRing(getTower(selectedTower)) < getTopRing(getTower(destinationTower))
+    var result = getTopRing(getTower(originTower)) <= getTopRing(getTower(destinationTower));
+    console.log(`${(!result)? "IN": "  "}VALID MOVE: tower-${originTower} ring-${getTopRing(getTower(originTower))} -> tower-${destinationTower}`);
+    return result;
 }
 
-function moveRing(selectedTower, destinationTower) {
+function moveRing() {
 
     console.log("IN moveRing()")
 
     //Error check to ensure both towers selected; if no tower selected, exit function
-    if (selectedTower == null) {
+    if (originTower == -1) {
         console.log('No origin tower selected!');
-        return;
+        //return;
     }
-    if (destinationTower == null) {
+    else if (destinationTower == -1) {
         console.log('No destination tower selected!');
-        return;
+        //return;
     }
 
-    //Check if move is valid
-    if (!isValidMove(selectedTower, destinationTower)) {
-        console.log("INVALID MOVE:");
-        console.log(`ST: ${getTopRing(getTower(selectedTower))}`);
-        console.log(`DT: ${getTopRing(getTower(destinationTower))}`);
-        console.log(`BOOL: ${isValidMove(selectedTower, destinationTower)}`);
-        return;
+    //Check if move is invalid
+    else if (!isValidMove(originTower, destinationTower)) {
+        //return;
+        var ringValue = getTopRing(getTower(originTower));
+    }
+    else {
+
+        originTowerArr = getTower(originTower);
+        resultTowerArr = getTower(destinationTower);
+        //Move ring from one tower to another
+        var ringValue = originTowerArr.splice(originTowerArr.length - 1, 1);
+        resultTowerArr.push(ringValue)
+
+        //Move the ring SVG element to destination tower
+        updateRingById(ringValue);
+
+        //Print new towers array
+        printTowers();
+        //return;
     }
 
-    //Move ring from one tower to another
-    originTower = getTower(selectedTower);
-    resultTower = getTower(destinationTower);
-    ringValue = originTower.splice(towers[selectedTower].length - 1, 1)
-    resultTower.push(ringValue)
+    //Unhighlight moved ring
+    unhighlightRing(ringValue);
 
-    //Deselect tower
-    deselectTower();
+    //Deselect towers
+    deselectTowers();
 
-    updateRingById(ringValue, destinationTower);
-    printTowers();
-    return;
+    //Check for a win state; display win state if winning
+    checkWinCondition();
 }
 
-function updateRingById(i, destinationTower) {
-    const ring = document.getElementById("ring-" + i);
+//Move the ring SVG element to match towers array
+function updateRingById(ringValue) {
+    const ring = document.getElementById("ring-" + ringValue);
     console.log("\nX: " + ring.getAttribute("x") + "\n Y: " +ring.getAttribute("Y"));
     ring.setAttribute("x", destinationTower * 200 + 200 - ring.getAttribute("width")/2);
-    ring.setAttribute("y", 585 - getTower(destinationTower).length * 85);
+    ring.setAttribute("y", 600 - getTower(destinationTower).length * 65);
     console.log("\nX: " + ring.getAttribute("x") + "\n Y: " +ring.getAttribute("Y"));
 
 }
 
+//print towers array to console 
 function printTowers() {
     console.log(towers)
+}
+
+//Check for and display win-condition text when winning
+function checkWinCondition() {
+    const winText = document.getElementById("hanoi-win-text");
+
+    //Check for all rings on one non-starting ring: make win text visible
+    for (var i = 1; i < towers.length; i++) {
+        if (towers[i].length == numRings) {
+            winText.classList.remove("invisible");
+            return;
+        }
+    }
+
+    //Else not all rings on one non-starting ring: make win text invisible again
+    winText.classList.add("invisible");
+    return;
 }

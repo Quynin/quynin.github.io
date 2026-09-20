@@ -19,14 +19,13 @@
             <a href="/pages/about-me.html">About Me</a>
         </div>
 
-        <div>
-            <div>
-                <h1>Here are some of my favourite software projects!</h1>
-            </div>
+        <div class="horz-centre">
             
             <!-- projects -->
             <div>
-
+                <div>
+                    <h1>Here are some of my favourite software projects!</h1>
+                </div>
                 <div>
                     <h2>My Website</h2>
                     <p><a href="https://github.com/Quynin/quynin.github.io">Repository link</a></p>
@@ -64,55 +63,50 @@
                 <div>
                     <script src="../towers-of-hanoi.js"></script>
                     <h2>Towers of Hanoi</h2>
-                    <p>The Towers of Hanoi is a classic CS problem. I've simulated it in JS here!</p>
+                    <p>The Towers of Hanoi is a classic CS game. I've simulated it in JS here!</p>
+                    <h3>Objective:</h3>
+                        <p>
+                            Your goal is to move all of the rings from one tower to another.<br>
+                            At any point, you can only move the top-most ring on each tower.<br>
+                            Rings may only go atop bigger rings.
+                        </p>
 
                     <!--Visuals rendered here! Use an SVG? TODO: transition to a better drawing program; show both size-by-side-->
                     <div id="towers-of-hanoi-div">
                         <svg width="800" height="600">
 
                             <!-- towers -->
-                            <rect class="hanoi-tower" id="tower-1" x="175" y="200" width="50" height="400" fill="grey" onclick="selectTower(0)"/>
-                            <rect class="hanoi-tower" id="tower-2" x="375" y="200" width="50" height="400" fill="grey" onclick="selectTower(1)"/>
-                            <rect class="hanoi-tower" id="tower-3" x="575" y="200" width="50" height="400" fill="grey" onclick="selectTower(2)"/>
+                            <rect class="hanoi-tower" id="tower-1" x="175" y="200" width="50" height="400" fill="grey" onclick="clickTower(0)"/>
+                            <rect class="hanoi-tower" id="tower-2" x="375" y="200" width="50" height="400" fill="grey" onclick="clickTower(1)"/>
+                            <rect class="hanoi-tower" id="tower-3" x="575" y="200" width="50" height="400" fill="grey" onclick="clickTower(2)"/>
                             
                             <!-- rings -->
-                            <rect class="hanoi-ring" id="ring-1" x="140" y="160" width="120" height="80" fill = "red"/>
-                            <rect class="hanoi-ring" id="ring-2" x="130" y="245" width="140" height="80" fill = "red"/>
-                            <rect class="hanoi-ring" id="ring-3" x="120" y="330" width="160" height="80" fill = "red"/>
-                            <rect class="hanoi-ring" id="ring-4" x="110" y="415" width="180" height="80" fill = "red"/>
-                            <rect class="hanoi-ring" id="ring-5" x="100" y="500" width="200" height="80" fill = "red"/>
+                            <rect class="hanoi-ring" id="ring-1" x="140" y="275" width="120" height="60" fill = "red" stroke="black"/>
+                            <rect class="hanoi-ring" id="ring-2" x="130" y="340" width="140" height="60" fill = "red" stroke="black"/>
+                            <rect class="hanoi-ring" id="ring-3" x="120" y="405" width="160" height="60" fill = "red" stroke="black"/>
+                            <rect class="hanoi-ring" id="ring-4" x="110" y="470" width="180" height="60" fill = "red" stroke="black"/>
+                            <rect class="hanoi-ring" id="ring-5" x="100" y="535" width="200" height="60" fill = "red" stroke="black"/>
 
                             <!-- onclick hitboxes -->
-                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="100" y="0" width="200" height="600" opacity="0" onclick="selectTower(0)"/>
-                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="300" y="0" width="200" height="600" opacity="0" onclick="selectTower(1)"/>
-                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="500" y="0" width="200" height="600" opacity="0" onclick="selectTower(2)"/>
+                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="100" y="0" width="200" height="600" opacity="0" onclick="clickTower(0)"/>
+                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="300" y="0" width="200" height="600" opacity="0" onclick="clickTower(1)"/>
+                            <rect class="hanoi-tower-hitbox" id="hitbox-1" x="500" y="0" width="200" height="600" opacity="0" onclick="clickTower(2)"/>
 
+                            <text class="invisible" id="hanoi-win-text" x="200" y= "200" font-family="Arial" font-size="48" fill="white">
+                                You win!                                
+                            </text>
  
                         </svg>
                     </div>
 
                     <script type="text/javascript">
+                        //Add event listener to each tower via corresponding hitbox
                         var towerssss = document.getElementsByClassName("hanoi-tower-hitbox");
                         for (var i = 0; i < towerssss.length; i++) {  
                             towerssss[i].addEventListener('onclick', (e) => {
-                                selectTower();
+                                clickTower();
                             });
                         }
-
-                        // rings.forEach() did not work here?
-                        //TODO: GET THIS WORKING? function in towers-of-hanoi.js
-                        /*
-                        var rings = document.getElementsByClassName("hanoi-ring");
-                        for (var i = 0; i < rings.length; i++) {
-                            console.log(rings)
-                            rings[i].addEventListener('onclick', (e) => {
-                                console.log('AFTER SELECT BY RING ID')
-                                selectTowerByRingId(ring.getAttribute("id"));
-                                console.log('AFTER SELECT BY RING ID')
-                            }
-                            );
-                        }
-                            */
                     </script>
                 </div>
             </div>

@@ -5,8 +5,10 @@
 /*
 /*******************************************************/
 .topnav {
+  display: flex;
   overflow: hidden;
   background-color: black;
+  justify-content: center;
 }
 
 .topnav a {
@@ -61,4 +63,17 @@ footer {
   color:    lightskyblue;
   display:    in-line;
   font-size:  40px;  
+}
+
+/* Class for hiding objects */
+.invisible {
+  visibility: hidden;
+}
+
+/* Class for centering pages */
+.horz-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*height: 100vh;*/
 }
