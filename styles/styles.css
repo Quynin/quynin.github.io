@@ -27,10 +27,10 @@
 
 
 /* Make this different for each tab; colour and texture? e.g: starry for About Me; papery for editing; obsidian for code*/
-/*.topnav a.active {
-  background-color: #ddd;
-  color: black;
-}*/
+.topnav a.active {
+  background-color: #100b38;
+  color: #100b38;
+}
 
 /* Footer Stylings 
 /*

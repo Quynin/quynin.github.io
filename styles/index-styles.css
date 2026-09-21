@@ -19,7 +19,7 @@ p {
     height: 100%;
     visibility: true;
     border-radius: 200px;
-    offset-position: left 25%;
+    /*offset-position: left 25%;*/  
 }
 
 /* Overwriting active tab for index page
@@ -27,6 +27,6 @@ THIS DOES NOT WORK; NEED TO BLANK OUT
 BASE styles.css default for it to apply?*/
 .topnav a.active {
   background-color: #100b38;
-  color: #100b38;
+  color: white;
 }
 
