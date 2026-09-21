@@ -4,7 +4,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
 h1, h2, h3 {
     color: white;
 }
@@ -14,12 +13,12 @@ p, li {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a:link {
-    color: #8080FF;
+/* Overwriting default link colours for dark background */
+.recoloured-link a:link {
+    color: #B0B0FF;
 }
-
-a:visited {
-    color: #4040FF;
+.recoloured-link a:visited {
+    color: #9090FF;
 }
 
 /* Overwriting active tab for software page */
@@ -28,6 +27,3 @@ a:visited {
   color: white;
 }
 
-.topnav a:link {
-    color: 
-} 

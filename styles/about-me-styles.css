@@ -26,3 +26,11 @@ p {
   background-color: #100b38;
   color: white;
 }
+
+/* Overwriting default link colours for dark background */
+.recoloured-link a:link {
+    color: #B0B0FF;
+}
+.recoloured-link a:visited {
+    color: #9090FF;
+}
