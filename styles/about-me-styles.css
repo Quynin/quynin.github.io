@@ -23,6 +23,6 @@ p {
 
 /* Overwriting active tab for about me page */
 .topnav a.active {
-  background-color: #1200af;
+  background-color: #100b38;
   color: white;
 }

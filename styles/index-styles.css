@@ -22,9 +22,11 @@ p {
     offset-position: left 25%;
 }
 
-/* Overwriting active tab for index page */
+/* Overwriting active tab for index page
+THIS DOES NOT WORK; NEED TO BLANK OUT
+BASE styles.css default for it to apply?*/
 .topnav a.active {
-  background-color: #1200af;
-  color: white;
+  background-color: #100b38;
+  color: #100b38;
 }
 
